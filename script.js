@@ -12,6 +12,7 @@ function numToWord(intNum) {
     var result = [];
 
     var minus = '';
+    var minStatus = false;
 
     console.log(intNum);
 
@@ -19,6 +20,7 @@ function numToWord(intNum) {
         if(intNum < 0){
             intNum = Math.abs(intNum).toString();
             minus = 'минус';
+            minStatus = true;
         } else {
             intNum = intNum.toString();
         }
@@ -101,7 +103,8 @@ function numToWord(intNum) {
 
     }
     result.unshift(minus);
-    return (result.join(' ').length > 20) ? (intNum < 0 ? intNum * -1 : intNum) : result.join(' ');
+    intNum = (minStatus) ? intNum * -1 : intNum;
+    return (result.join(' ').length > 20) ? intNum : result.join(' ');
 }
 
 function resetProgram(){
