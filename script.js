@@ -101,7 +101,7 @@ function numToWord(intNum) {
 
     }
     result.unshift(minus);
-    return (result.join(' ').length > 20) ? intNum * -1 : result.join(' ');
+    return (result.join(' ').length > 20) ? (intNum < 0 ? intNum * -1 : intNum) : result.join(' ');
 }
 
 function resetProgram(){
